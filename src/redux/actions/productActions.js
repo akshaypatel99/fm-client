@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from 'axios';
-import axiosInstance from '../../util/axios';
+import axios from '../../util/axios';
 
 export const listProducts =
 	(keyword = '', pageNumber = '') =>
@@ -8,7 +7,7 @@ export const listProducts =
 		try {
 			dispatch({ type: actionTypes.PRODUCT_LIST_REQUEST });
 
-			const { data } = await axiosInstance.get(
+			const { data } = await axios.get(
 				`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
 			);
 

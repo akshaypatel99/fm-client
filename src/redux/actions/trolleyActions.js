@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../util/axios';
 import * as actionTypes from './actionTypes';
 
 export const addToTrolley = (id, qty) => async (dispatch, getState) => {

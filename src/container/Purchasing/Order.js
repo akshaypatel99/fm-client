@@ -15,7 +15,7 @@ import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { getOrderDetails, payOrder } from '../../redux/actions/orderActions';
 import { deliverOrder } from '../../redux/actions/adminActions';
-import axios from 'axios';
+import axios from '../../util/axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import {
 	ORDER_PAY_RESET,
@@ -39,10 +39,8 @@ const Order = () => {
 	const { successful: successfulPay } = orderPay;
 
 	const orderDelivered = useSelector((state) => state.orderDelivered);
-	const {
-		loading: loadingDeliver,
-		successful: successfulDelivered,
-	} = orderDelivered;
+	const { loading: loadingDeliver, successful: successfulDelivered } =
+		orderDelivered;
 
 	const userLogin = useSelector((state) => state.userLogin);
 	const { userInfo } = userLogin;
@@ -246,8 +244,7 @@ const Order = () => {
 										<Button
 											type='button'
 											className='btn btn-block'
-											onClick={deliveredHandler}
-										>
+											onClick={deliveredHandler}>
 											Mark As Delivered
 										</Button>
 									</ListGroupItem>

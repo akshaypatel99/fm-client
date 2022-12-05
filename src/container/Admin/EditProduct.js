@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useParams } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../util/axios';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import FormWrap from '../../components/Form';
@@ -150,8 +150,7 @@ const EditProduct = () => {
 								id='image-file'
 								label='Choose File'
 								custom
-								onChange={uploadFileHandler}
-							></FormFile>
+								onChange={uploadFileHandler}></FormFile>
 							{uploading && <Loader />}
 						</FormGroup>
 
